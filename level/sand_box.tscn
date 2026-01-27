@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://r4m8k5745j72"]
+
+[ext_resource type="PackedScene" uid="uid://jfsyladp1ts8" path="res://Manager/game_manager.tscn" id="1_8rxby"]
+[ext_resource type="PackedScene" uid="uid://d1etdx34g3waf" path="res://planets/planet.tscn" id="2_2ouf8"]
+
+[node name="SandBox" type="Node2D"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_8rxby")]
+planet = NodePath("../Planet")
+
+[node name="Planet" parent="." instance=ExtResource("2_2ouf8")]
+position = Vector2(575, 325)
