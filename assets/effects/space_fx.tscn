@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ckf36bxqt3b7f"]
+
+[ext_resource type="Script" uid="uid://bynnqf8latt0u" path="res://assets/effects/space_fx.gd" id="1_d8kov"]
+
+[node name="SpaceFX" type="Node2D" unique_id=291518817]
+script = ExtResource("1_d8kov")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1698384989]
+amount = 50
+lifetime = 360.0
+one_shot = true
+preprocess = 360.0
+speed_scale = 0.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 325)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
