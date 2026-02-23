@@ -15,6 +15,5 @@ func _on_area_2d_mouse_exited() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and on_planet:
-		print("I have been clicked from the planet!")
 		Events.currency_changed.emit(1)
 	
