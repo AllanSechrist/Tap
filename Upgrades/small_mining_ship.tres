@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeBase" format=3 uid="uid://clum42l6p786m"]
+
+[ext_resource type="Script" uid="uid://bk2l6s03c4iop" path="res://Upgrades/base.gd" id="1_lnctc"]
+[ext_resource type="Texture2D" uid="uid://7p1dlef3xfix" path="res://assets/art/tiny_ship.png" id="1_u3b2p"]
+
+[resource]
+resource_name = "Small Ship"
+script = ExtResource("1_lnctc")
+name = "Small Ship"
+description = "A small mining ship cobbled together from scrap, duct tape, and vibes."
+icon = ExtResource("1_u3b2p")
+metadata/_custom_type_script = "uid://bk2l6s03c4iop"

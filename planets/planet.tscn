@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1etdx34g3waf"]
+[gd_scene format=3 uid="uid://d1etdx34g3waf"]
 
 [ext_resource type="Script" uid="uid://4ilrr4ujhlh3" path="res://planets/planet.gd" id="1_0coog"]
 [ext_resource type="Texture2D" uid="uid://cgmeama31tfc4" path="res://assets/art/planet00.png" id="1_xgwrp"]
@@ -6,16 +6,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
 radius = 276.06522
 
-[node name="Planet" type="Node2D"]
+[node name="Planet" type="Node2D" unique_id=918815002]
 script = ExtResource("1_0coog")
 
-[node name="Planet" type="Sprite2D" parent="."]
+[node name="Planet" type="Sprite2D" parent="." unique_id=565568362]
+z_index = 1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_xgwrp")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1558273500]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=243544676]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_0coog")
 

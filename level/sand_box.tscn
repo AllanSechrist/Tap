@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://r4m8k5745j72"]
 
-[ext_resource type="PackedScene" uid="uid://jfsyladp1ts8" path="res://Manager/game_manager.tscn" id="1_8rxby"]
 [ext_resource type="PackedScene" uid="uid://d1etdx34g3waf" path="res://planets/planet.tscn" id="2_2ouf8"]
 [ext_resource type="PackedScene" uid="uid://ckf36bxqt3b7f" path="res://assets/effects/space_fx.tscn" id="3_8rxby"]
+[ext_resource type="PackedScene" uid="uid://kgtw23mrxq15" path="res://player stats/player_state.tscn" id="3_imhmf"]
 
 [node name="SandBox" type="Node2D" unique_id=269866359]
-
-[node name="GameManager" parent="." unique_id=1654976986 node_paths=PackedStringArray("planet") instance=ExtResource("1_8rxby")]
-planet = NodePath("../Planet")
 
 [node name="Planet" parent="." unique_id=537655757 instance=ExtResource("2_2ouf8")]
 position = Vector2(575, 325)
 
 [node name="SpaceFX" parent="." unique_id=291518817 instance=ExtResource("3_8rxby")]
-position = Vector2(0, 325)
+
+[node name="PlayerState" parent="." unique_id=440408427 instance=ExtResource("3_imhmf")]
