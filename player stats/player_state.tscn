@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://kgtw23mrxq15"]
 
 [ext_resource type="Script" uid="uid://dcktervr6u7us" path="res://player stats/player_state.gd" id="1_gmrk6"]
+[ext_resource type="Script" uid="uid://u0pn35ydugx4" path="res://player stats/resource_handler.gd" id="2_ne10e"]
 
 [node name="PlayerState" type="Node" unique_id=440408427]
 script = ExtResource("1_gmrk6")
+
+[node name="ResourceHandler" type="Node" parent="." unique_id=1272399113]
+script = ExtResource("2_ne10e")
