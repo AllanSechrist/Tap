@@ -5,6 +5,8 @@ func _ready() -> void:
 	Events.purchase_request.connect(_on_perchase_request)
 
 func can_buy(item: Item) -> bool:
+	var resource_requirements = item.cost.keys()
+	
 	return true
 	
 func _on_perchase_request(item: Item) -> void:

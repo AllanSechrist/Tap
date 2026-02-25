@@ -15,3 +15,4 @@ signal update_item_label() #pass in item type and amount
 # ------- SHOP -------
 signal purchase_request(item: Item, resources: Dictionary)#change to pass item type
 signal purchase_success(item: Item, type: ResourceHandler.resource_type, amount: int)
+signal player_resources(requirements: Array)

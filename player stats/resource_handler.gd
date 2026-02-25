@@ -13,6 +13,7 @@ enum resource_type {IRON_ORE, COPPER_ORE, IRON_PLATE, COPPER_PLATE}
 func _ready() -> void:
 	Events.add_resource.connect(_on_add_resource)
 	Events.subtract_resource.connect(_on_subtract_resource)
+	Events.player_resources.connect(_on_player_resources)
 func _on_add_resource(type: resource_type, amount: int) -> void:
 	resources[type] += amount
 	Events.update_resource_label.emit(type, resources[type])
@@ -20,3 +21,6 @@ func _on_add_resource(type: resource_type, amount: int) -> void:
 func _on_subtract_resource(type: resource_type, amount: int) -> void:
 	resources[type] -= amount
 	Events.update_resource_label.emit(type, resources[type])
+
+func _on_player_resources(reqirements: Array) -> bool:
+	pass
