@@ -23,4 +23,4 @@ func _on_subtract_resource(type: resource_type, amount: int) -> void:
 	Events.update_resource_label.emit(type, resources[type])
 
 func _on_player_resources(reqirements: Array) -> bool:
-	pass
+	return false
