@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cexy6uxhl7xwe"]
+
+[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_v0doh"]
+
+[resource]
+script = ExtResource("1_v0doh")
+cost = Dictionary[int, int]({
+0: 250
+})
+metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

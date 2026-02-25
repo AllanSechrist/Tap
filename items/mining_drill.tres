@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dkodq0cl7fwup"]
+
+[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_gu338"]
+
+[resource]
+script = ExtResource("1_gu338")
+id = &"mining_drill"
+display_name = "Mining Drill"
+description = "A humble drill"
+cost = Dictionary[int, int]({
+0: 100
+})
+metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

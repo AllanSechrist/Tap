@@ -11,8 +11,12 @@ enum resource_type {IRON_ORE, COPPER_ORE, IRON_PLATE, COPPER_PLATE}
 }
 
 func _ready() -> void:
-	Events.resource_changed.connect(_on_resource_changed)
-
-func _on_resource_changed(type: resource_type, amount: int) -> void:
+	Events.add_resource.connect(_on_add_resource)
+	Events.subtract_resource.connect(_on_subtract_resource)
+func _on_add_resource(type: resource_type, amount: int) -> void:
 	resources[type] += amount
+	Events.update_resource_label.emit(type, resources[type])
+
+func _on_subtract_resource(type: resource_type, amount: int) -> void:
+	resources[type] -= amount
 	Events.update_resource_label.emit(type, resources[type])

@@ -4,12 +4,12 @@ class_name ShopHandler
 func _ready() -> void:
 	Events.purchase_request.connect(_on_perchase_request)
 
-func can_buy(item: String, resources: Dictionary) -> bool:
+func can_buy(item: Item) -> bool:
 	return true
 	
-func _on_perchase_request(item: String, resources: Dictionary) -> void:
+func _on_perchase_request(item: Item) -> void:
 	# Check if player has enough resources to make a perchase
-	if can_buy(item, resources):
+	if can_buy(item):
 		print("yes")
 	else:
 		print("no")

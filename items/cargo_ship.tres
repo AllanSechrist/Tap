@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c0kfo8r7tif3w"]
+
+[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_qkm3p"]
+
+[resource]
+script = ExtResource("1_qkm3p")
+id = &"cargo_ship"
+display_name = "Cargo Ship"
+description = "A big ship for big things"
+cost = Dictionary[int, int]({
+2: 100,
+3: 200
+})
+metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

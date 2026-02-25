@@ -14,5 +14,5 @@ func _on_area_2d_mouse_exited() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and on_planet:
-		Events.resource_changed.emit(resource_type, click_value)
+		Events.add_resource.emit(resource_type, click_value)
 	
