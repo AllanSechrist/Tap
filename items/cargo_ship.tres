@@ -7,8 +7,4 @@ script = ExtResource("1_qkm3p")
 id = &"cargo_ship"
 display_name = "Cargo Ship"
 description = "A big ship for big things"
-cost = Dictionary[int, int]({
-2: 100,
-3: 200
-})
 metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

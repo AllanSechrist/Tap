@@ -1,21 +1,36 @@
 extends Node
 class_name ShopHandler
 
-func _ready() -> void:
-	Events.purchase_request.connect(_on_perchase_request)
+var pending_item: Item = null
 
-func can_buy(item: Item) -> bool:
-	var resource_requirements = item.cost.keys()
-	
+func _ready() -> void:
+	Events.perchase_request.connect(_on_perchase_request)
+	Events.send_player_resources.connect(_on_player_resources)
+
+func can_afford(item: Item, resources: Dictionary) -> bool:
+	for type in item.costs.keys():
+		var cost := int(item.costs[type])
+		var have := int(resources.get(type, 0))
+		if have < cost:
+			return false
 	return true
 	
 func _on_perchase_request(item: Item) -> void:
-	# Check if player has enough resources to make a perchase
-	if can_buy(item):
-		print("yes")
+	pending_item = item
+	Events.request_player_resources.emit()
+	
+func _on_player_resources(resources: Dictionary) -> void:
+	if pending_item == null:
+		return
+	
+	var item := pending_item
+	pending_item = null
+	
+	if can_afford(item, resources):
+		for type in item.costs.keys():
+			var cost := int(item.costs[type])
+			Events.subtract_resource.emit(type, cost)
+		
+		Events.perchase_success.emit(item)
 	else:
-		print("no")
-	pass
-	# >>> display message telling player they do not have enough resources to make a perchase.
-	# if player has enough resources, signal the amount of resources to remove and which item to increase
-	# Events.purchase_success.emit(item, type, amount)
+		Events.perchase_failed.emit(item, "Not enough resources")

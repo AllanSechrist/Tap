@@ -13,6 +13,8 @@ signal update_resource_label(type: ResourceHandler.resource_type, new_value: int
 signal update_item_label() #pass in item type and amount
 
 # ------- SHOP -------
-signal purchase_request(item: Item, resources: Dictionary)#change to pass item type
-signal purchase_success(item: Item, type: ResourceHandler.resource_type, amount: int)
-signal player_resources(requirements: Array)
+signal perchase_request(item: Item)#change to pass item type
+signal perchase_success(item: Item)
+signal perchase_failed(item: Item, message: String)
+signal request_player_resources()
+signal send_player_resources(resources: Dictionary)
