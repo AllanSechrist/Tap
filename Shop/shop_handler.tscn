@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cyldiactu1wrm"]
 
 [ext_resource type="Script" uid="uid://yn2roxee0juq" path="res://Shop/shop_handler.gd" id="1_2rowx"]
+[ext_resource type="Resource" uid="uid://eowgs1mnq58m" path="res://Shop/Shops/earth/earth.tres" id="2_44d4l"]
 
 [node name="ShopHandler" type="Node" unique_id=1164106857]
 script = ExtResource("1_2rowx")
+catalog = ExtResource("2_44d4l")

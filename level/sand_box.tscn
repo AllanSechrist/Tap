@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf36bxqt3b7f" path="res://assets/effects/space_fx.tscn" id="3_8rxby"]
 [ext_resource type="PackedScene" uid="uid://kgtw23mrxq15" path="res://player stats/player_state.tscn" id="3_imhmf"]
 [ext_resource type="PackedScene" uid="uid://dcjstyi5a1n72" path="res://UI/ui.tscn" id="4_imhmf"]
+[ext_resource type="PackedScene" uid="uid://cyldiactu1wrm" path="res://Shop/shop_handler.tscn" id="5_g1ufw"]
 
 [node name="SandBox" type="Node2D" unique_id=269866359]
 
@@ -13,5 +14,7 @@ position = Vector2(575, 325)
 [node name="SpaceFX" parent="." unique_id=291518817 instance=ExtResource("3_8rxby")]
 
 [node name="PlayerState" parent="." unique_id=440408427 instance=ExtResource("3_imhmf")]
+
+[node name="ShopHandler" parent="." unique_id=1164106857 instance=ExtResource("5_g1ufw")]
 
 [node name="UI" parent="." unique_id=32826871 instance=ExtResource("4_imhmf")]

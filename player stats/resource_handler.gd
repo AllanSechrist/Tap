@@ -14,6 +14,7 @@ func _ready() -> void:
 	Events.add_resource.connect(_on_add_resource)
 	Events.subtract_resource.connect(_on_subtract_resource)
 	Events.request_player_resources.connect(_on_player_resource_request)
+	
 func _on_add_resource(type: resource_type, amount: int) -> void:
 	resources[type] = int(resources.get(type, 0)) + amount
 	Events.update_resource_label.emit(type, resources[type])
