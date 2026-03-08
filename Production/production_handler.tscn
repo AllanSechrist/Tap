@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d4aa51ughqt0e"]
+
+[ext_resource type="Script" uid="uid://b1euemuagq117" path="res://Production/production_handler.gd" id="1_lj5mf"]
+[ext_resource type="Resource" uid="uid://eowgs1mnq58m" path="res://Shop/Shops/earth/earth.tres" id="2_54lcc"]
+
+[node name="ProductionHandler" type="Node" unique_id=1598427286]
+script = ExtResource("1_lj5mf")
+catalog = ExtResource("2_54lcc")
+
+[node name="Timer" type="Timer" parent="." unique_id=336811209]

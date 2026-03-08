@@ -11,3 +11,4 @@ class_name Item
 
 @export_category("Economy")
 @export var costs: Dictionary[ResourceHandler.resource_type, int] = {}
+@export var production: Dictionary[ResourceHandler.resource_type, int] = {}

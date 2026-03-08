@@ -4,7 +4,6 @@ extends Node
 # ------- State -------
 signal add_resource(type: ResourceHandler.resource_type, amount: int)
 signal subtract_resource(type: ResourceHandler.resource_type, amount: int)
-signal add_item(item: Item, amount: int)
 signal remove_item(item: Item, amount: int)
 # signal for updating inventory/upgrades
 # signal for moving to another area

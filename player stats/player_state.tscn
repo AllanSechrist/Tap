@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcktervr6u7us" path="res://player stats/player_state.gd" id="1_gmrk6"]
 [ext_resource type="Script" uid="uid://u0pn35ydugx4" path="res://player stats/resource_handler.gd" id="2_ne10e"]
 [ext_resource type="Script" uid="uid://cc48voaav5pcd" path="res://player stats/upgrade_handler.gd" id="3_d4we4"]
+[ext_resource type="PackedScene" uid="uid://d4aa51ughqt0e" path="res://Production/production_handler.tscn" id="4_y200p"]
 
 [node name="PlayerState" type="Node" unique_id=440408427]
 script = ExtResource("1_gmrk6")
@@ -12,3 +13,5 @@ script = ExtResource("2_ne10e")
 
 [node name="UpgradeHandler" type="Node" parent="." unique_id=1170681769]
 script = ExtResource("3_d4we4")
+
+[node name="ProductionHandler" parent="." unique_id=1598427286 instance=ExtResource("4_y200p")]
