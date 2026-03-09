@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cexy6uxhl7xwe"]
 
 [ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_v0doh"]
+[ext_resource type="Texture2D" uid="uid://7p1dlef3xfix" path="res://assets/art/tiny_ship.png" id="1_yfa1p"]
 
 [resource]
 script = ExtResource("1_v0doh")
 id = &"small_ship"
 display_name = "Small Ship"
 description = "A Small Ship"
+icon = ExtResource("1_yfa1p")
 costs = Dictionary[int, int]({
-0: 10
+0: 100
 })
 production = Dictionary[int, int]({
-2: 1
+0: 10
 })
 metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

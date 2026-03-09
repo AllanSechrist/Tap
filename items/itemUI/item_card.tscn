@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c65yhe8qivbgp"]
+
+[ext_resource type="Texture2D" uid="uid://7p1dlef3xfix" path="res://assets/art/tiny_ship.png" id="1_6hl2c"]
+[ext_resource type="Script" uid="uid://bqgq6qm7fcxi" path="res://items/itemUI/item_card.gd" id="1_cvevm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8imll"]
+bg_color = Color(0.3491902, 0.38109186, 0.4366271, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5370987, 0.60124344, 0.6651851, 1)
+border_blend = true
+corner_detail = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_8imll"]
+font_size = 12
+font_color = Color(0.95468724, 0.9776916, 1, 1)
+
+[node name="ItemCard" type="PanelContainer" unique_id=495797227]
+offset_right = 134.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8imll")
+script = ExtResource("1_cvevm")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=969482851]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1246409811]
+layout_mode = 2
+
+[node name="CardNameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=235278996]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name Test"
+label_settings = SubResource("LabelSettings_8imll")
+horizontal_alignment = 1
+
+[node name="CardIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1343473657]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_6hl2c")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=296667778]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PerchaseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=905830685]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Buy: 99"
