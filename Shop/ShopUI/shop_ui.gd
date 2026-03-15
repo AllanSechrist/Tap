@@ -15,6 +15,5 @@ func populate_shop() -> void:
 		grid_container.add_child(card)
 		card.setup(item)
 
-
 func _on_exit_button_pressed() -> void:
 	Events.toggle_shop_menu.emit()

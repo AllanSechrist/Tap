@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 class_name ItemCard
 
 @onready var card_name_label: Label = %CardNameLabel

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnedsjqpuvwk3" path="res://Shop/ShopUI/shop_ui.gd" id="1_ajsfe"]
 [ext_resource type="Resource" uid="uid://eowgs1mnq58m" path="res://Shop/Shops/earth/earth.tres" id="2_56enu"]
+[ext_resource type="Script" uid="uid://dmu1bx1b246jl" path="res://UI/HUD/shop_menu_button.gd" id="4_oiswq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56enu"]
 bg_color = Color(0.101960786, 0.12156863, 0.18039216, 1)
@@ -75,14 +76,19 @@ theme_override_constants/margin_bottom = 64
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2138070313]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1431844933]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="ExitButton" type="Button" parent="." unique_id=476548191]
 custom_minimum_size = Vector2(150, 0)
@@ -103,5 +109,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_56enu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3oj4n")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oiswq")
 text = "Exit"
+script = ExtResource("4_oiswq")
 
+[connection signal="mouse_entered" from="ExitButton" to="ExitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ExitButton" to="ExitButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

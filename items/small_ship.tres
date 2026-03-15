@@ -10,9 +10,9 @@ display_name = "Small Ship"
 description = "A Small Ship"
 icon = ExtResource("1_yfa1p")
 costs = Dictionary[int, int]({
-0: 100
+0: 25
 })
 production = Dictionary[int, int]({
-0: 10
+0: 1
 })
 metadata/_custom_type_script = "uid://b4bvyu5ubixtr"
