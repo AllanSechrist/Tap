@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d1etdx34g3waf" path="res://planets/planet.tscn" id="2_2ouf8"]
 [ext_resource type="PackedScene" uid="uid://ckf36bxqt3b7f" path="res://assets/effects/space_fx.tscn" id="3_8rxby"]
 [ext_resource type="PackedScene" uid="uid://kgtw23mrxq15" path="res://player stats/player_state.tscn" id="3_imhmf"]
-[ext_resource type="PackedScene" uid="uid://dcjstyi5a1n72" path="res://UI/ui.tscn" id="4_imhmf"]
+[ext_resource type="PackedScene" uid="uid://dcjstyi5a1n72" path="res://UI/HUD/HUD.tscn" id="4_imhmf"]
+[ext_resource type="Script" uid="uid://coila3ty1drhn" path="res://UI/ui_manager.gd" id="5_1t3ia"]
 [ext_resource type="PackedScene" uid="uid://cyldiactu1wrm" path="res://Shop/shop_handler.tscn" id="5_g1ufw"]
+[ext_resource type="PackedScene" uid="uid://ccpetnnq4yrb1" path="res://Shop/ShopUI/shop_ui.tscn" id="7_5nar6"]
 
 [node name="SandBox" type="Node2D" unique_id=269866359]
 
@@ -17,4 +19,11 @@ position = Vector2(575, 325)
 
 [node name="ShopHandler" parent="." unique_id=1164106857 instance=ExtResource("5_g1ufw")]
 
-[node name="UI" parent="." unique_id=32826871 instance=ExtResource("4_imhmf")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=289300718]
+script = ExtResource("5_1t3ia")
+
+[node name="HUD" parent="CanvasLayer" unique_id=32826871 instance=ExtResource("4_imhmf")]
+
+[node name="ShopUI" parent="CanvasLayer" unique_id=1187385405 instance=ExtResource("7_5nar6")]
+visible = false
+mouse_filter = 0

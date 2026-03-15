@@ -8,11 +8,12 @@ signal remove_item(item: Item, amount: int)
 # signal for updating inventory/upgrades
 # signal for moving to another area
 
-# ------- UI -------
+# ------- HUD -------
 signal update_resource_label(type: ResourceHandler.resource_type, new_value: int)
 signal update_item_label(item: Item, amount: int) #pass in item type and amount
 
 # ------- SHOP -------
+signal toggle_shop_menu()
 signal perchase_request(item: Item, amount: int)
 signal perchase_success(item: Item, amount: int)
 signal perchase_failed(item: Item, message: String)

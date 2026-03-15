@@ -3,6 +3,48 @@
 [ext_resource type="Script" uid="uid://dnedsjqpuvwk3" path="res://Shop/ShopUI/shop_ui.gd" id="1_ajsfe"]
 [ext_resource type="Resource" uid="uid://eowgs1mnq58m" path="res://Shop/Shops/earth/earth.tres" id="2_56enu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56enu"]
+bg_color = Color(0.101960786, 0.12156863, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oj4n"]
+bg_color = Color(0.05882353, 0.078431375, 0.12156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiswq"]
+bg_color = Color(0.14509805, 0.19215687, 0.2901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
 [node name="ShopUI" type="Control" unique_id=1187385405]
 layout_mode = 3
 anchors_preset = 15
@@ -10,6 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ajsfe")
 shop_items = ExtResource("2_56enu")
 
@@ -40,3 +83,25 @@ size_flags_vertical = 3
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1431844933]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="." unique_id=476548191]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -40.0
+offset_right = 4.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_56enu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3oj4n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oiswq")
+text = "Exit"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://dcjstyi5a1n72"]
+
+[ext_resource type="Script" uid="uid://bjetjowho45xg" path="res://UI/HUD/HUD.gd" id="1_2fwl4"]
+[ext_resource type="Script" uid="uid://dmu1bx1b246jl" path="res://UI/HUD/shop_menu_button.gd" id="2_53dev"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ktxb"]
+bg_color = Color(0.101960786, 0.12156863, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dm5mv"]
+bg_color = Color(0.05882353, 0.078431375, 0.12156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53dev"]
+bg_color = Color(0.14509805, 0.19215687, 0.2901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_msqxa"]
+font_size = 36
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control" unique_id=32826871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2fwl4")
+
+[node name="MenuMargin" type="MarginContainer" parent="." unique_id=1971124807]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.5
+offset_top = -49.0
+offset_right = 40.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuMargin" unique_id=1736145756]
+layout_mode = 2
+
+[node name="ShopMenu" type="Button" parent="MenuMargin/HBoxContainer" unique_id=769723219]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ktxb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dm5mv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_53dev")
+text = "Shop"
+script = ExtResource("2_53dev")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=6218541]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_right = 154.0
+offset_bottom = 50.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1297397983]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ResourceList" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=548836009]
+layout_mode = 2
+
+[node name="IronOreLabel" type="Label" parent="MarginContainer/CenterContainer/ResourceList" unique_id=1935305147]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Iron Ore: 1000000"
+label_settings = SubResource("LabelSettings_msqxa")
+
+[node name="IronPlateLabel" type="Label" parent="MarginContainer/CenterContainer/ResourceList" unique_id=1233846979]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Iron Ore: 1000000"
+label_settings = SubResource("LabelSettings_msqxa")
+
+[node name="CopperOreLabel" type="Label" parent="MarginContainer/CenterContainer/ResourceList" unique_id=2009389890]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Iron Ore: 1000000"
+label_settings = SubResource("LabelSettings_msqxa")
+
+[node name="CopperPlateLabel" type="Label" parent="MarginContainer/CenterContainer/ResourceList" unique_id=2003369996]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Iron Ore: 1000000"
+label_settings = SubResource("LabelSettings_msqxa")
+
+[connection signal="mouse_entered" from="MenuMargin/HBoxContainer/ShopMenu" to="MenuMargin/HBoxContainer/ShopMenu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuMargin/HBoxContainer/ShopMenu" to="MenuMargin/HBoxContainer/ShopMenu" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuMargin/HBoxContainer/ShopMenu" to="." method="_on_shop_menu_pressed"]
