@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccpetnnq4yrb1"]
 
 [ext_resource type="Script" uid="uid://dnedsjqpuvwk3" path="res://Shop/ShopUI/shop_ui.gd" id="1_ajsfe"]
+[ext_resource type="Resource" uid="uid://eowgs1mnq58m" path="res://Shop/Shops/earth/earth.tres" id="2_56enu"]
 
 [node name="ShopUI" type="Control" unique_id=1187385405]
 layout_mode = 3
@@ -10,3 +11,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajsfe")
+shop_items = ExtResource("2_56enu")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=543321639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1167196120]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=371160829]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2138070313]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1431844933]
+unique_name_in_owner = true
+layout_mode = 2
