@@ -20,6 +20,9 @@ func _ready() -> void:
 	for item in catalog.items:
 		item_lookup[item.id] = item
 
+func get_resources_per_second() -> int:
+	return 0
+
 func _on_tick() -> void:
 	for item_id in inventory.keys():
 		var owned_count: int = inventory[item_id]
@@ -48,6 +51,8 @@ func _on_perchase_success(item: Item, amount: int) -> void:
 		return
 		
 	inventory[item.id] = inventory.get(item.id, 0) + amount
+	Events.update_owned_label.emit(item, inventory[item.id])
+	Events.update_ore_per_second_label.emit(get_resources_per_second())
 	
 func _on_remove_item(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:

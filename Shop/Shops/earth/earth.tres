@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_wsnj5"]
 [ext_resource type="Resource" uid="uid://cexy6uxhl7xwe" path="res://items/small_ship.tres" id="2_8qhvq"]
 [ext_resource type="Script" uid="uid://c6cixgpy4ljr5" path="res://Shop/shop_catalog.gd" id="2_147yu"]
+[ext_resource type="Resource" uid="uid://dkodq0cl7fwup" path="res://items/mining_drill.tres" id="3_mc5gb"]
+[ext_resource type="Resource" uid="uid://c0kfo8r7tif3w" path="res://items/cargo_ship.tres" id="4_a3h26"]
 
 [resource]
 script = ExtResource("2_147yu")
-items = Array[ExtResource("1_wsnj5")]([ExtResource("2_8qhvq")])
+items = Array[ExtResource("1_wsnj5")]([ExtResource("2_8qhvq"), ExtResource("3_mc5gb"), ExtResource("4_a3h26")])
 metadata/_custom_type_script = "uid://c6cixgpy4ljr5"

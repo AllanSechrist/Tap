@@ -7,7 +7,7 @@ const RESOURCE_DISPLAY_NAMES := {
 	ResourceHandler.resource_type.IRON_PLATE: "Iron Plate",
 	ResourceHandler.resource_type.COPPER_PLATE: "Copper Plate",
 }
-
+@onready var ops_label: Label = %OPSLabel
 @onready var resource_labels := {
 	ResourceHandler.resource_type.IRON_ORE: %IronOreLabel,
 	ResourceHandler.resource_type.IRON_PLATE: %IronPlateLabel,
@@ -17,10 +17,12 @@ const RESOURCE_DISPLAY_NAMES := {
 
 func _ready() -> void:
 	Events.update_resource_label.connect(_on_resource_changed)
+	Events.update_ore_per_second_label.connect(_on_ore_per_second_update)
 	# set iron ore label
 	resource_labels[0].text = "%s: %d" % [RESOURCE_DISPLAY_NAMES[0], 0]
 	#for label in resource_labels.keys():
 		#set_label_visibility(resource_labels[label], 0)
+	ops_label.text = "OPS: 0"
 	
 func _on_resource_changed(type: ResourceHandler.resource_type, new_value: int) -> void:
 	var display_name = RESOURCE_DISPLAY_NAMES[type]
@@ -36,3 +38,6 @@ func _on_resource_changed(type: ResourceHandler.resource_type, new_value: int) -
 		
 func _on_shop_menu_pressed() -> void:
 	Events.toggle_shop_menu.emit()
+	
+func _on_ore_per_second_update(value: int) -> void:
+	ops_label.text = "OPS: " + str(value)

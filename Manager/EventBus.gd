@@ -10,7 +10,8 @@ signal remove_item(item: Item, amount: int)
 
 # ------- HUD -------
 signal update_resource_label(type: ResourceHandler.resource_type, new_value: int)
-signal update_item_label(item: Item, amount: int) #pass in item type and amount
+signal update_owned_label(item: Item, new_value: int) #pass in item type and amount
+signal update_ore_per_second_label(new_value: int)
 
 # ------- SHOP -------
 signal toggle_shop_menu()

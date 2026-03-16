@@ -76,7 +76,7 @@ theme_override_constants/margin_bottom = 64
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2138070313]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -85,10 +85,10 @@ vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1431844933]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_vertical = 3
 
 [node name="ExitButton" type="Button" parent="." unique_id=476548191]
 custom_minimum_size = Vector2(150, 0)

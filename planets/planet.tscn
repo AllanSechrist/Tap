@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1etdx34g3waf"]
 
 [ext_resource type="Script" uid="uid://4ilrr4ujhlh3" path="res://planets/planet.gd" id="1_0coog"]
-[ext_resource type="Texture2D" uid="uid://cgmeama31tfc4" path="res://assets/art/planet00.png" id="1_xgwrp"]
+[ext_resource type="Texture2D" uid="uid://cgmeama31tfc4" path="res://assets/art/planets/planet00.png" id="1_xgwrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
 radius = 276.06522
