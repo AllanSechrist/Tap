@@ -19,27 +19,29 @@ func _ready() -> void:
 	
 	for item in catalog.items:
 		item_lookup[item.id] = item
-
-func get_resources_per_second() -> int:
-	return 0
-
-func _on_tick() -> void:
+	
+func get_total_production() -> int:
+	var total: int = 0
 	for item_id in inventory.keys():
 		var owned_count: int = inventory[item_id]
-	
+		
 		if owned_count <= 0:
 			continue
-		
+			
 		var item: Item = item_lookup.get(item_id)
 		if item == null:
 			continue
-		
+			
 		for resource_type in item.production.keys():
 			var produced_per_tick: int = int(item.production[resource_type])
 			var total_amount: int = owned_count * produced_per_tick
-			
-			if total_amount > 0:
-				Events.add_resource.emit(resource_type, total_amount)
+			total += total_amount
+	return total
+
+func _on_tick() -> void:
+	var total = get_total_production()
+	if total > 0:
+		Events.add_resource.emit(0, total)
 
 func _on_perchase_failed(item: Item, message: String) -> void:
 	var item_name = item.display_name
@@ -52,7 +54,7 @@ func _on_perchase_success(item: Item, amount: int) -> void:
 		
 	inventory[item.id] = inventory.get(item.id, 0) + amount
 	Events.update_owned_label.emit(item, inventory[item.id])
-	Events.update_ore_per_second_label.emit(get_resources_per_second())
+	Events.update_ore_per_second_label.emit(get_total_production())
 	
 func _on_remove_item(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:
