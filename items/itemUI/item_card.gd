@@ -28,6 +28,9 @@ func setup(new_item: Item):
 		
 	update_text(text, "Buy")
 	update_text("Owned: 0", "Owned")
+	
+	if item.upgrade:
+		owned_label.visible = false
 
 func update_text(text: String, label_type: String) -> void:
 	if label_type == "Buy":
