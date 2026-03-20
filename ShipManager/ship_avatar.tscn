@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cmxxsdylfgdr8"]
+
+[ext_resource type="Script" uid="uid://bb5f10465vs76" path="res://ShipManager/ship_avatar.gd" id="1_f4x7j"]
+
+[node name="ShipAvatar" type="Node2D" unique_id=743189740]
+script = ExtResource("1_f4x7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=389035746]
+scale = Vector2(0.5, 0.5)

@@ -9,6 +9,15 @@ func _ready() -> void:
 	Events.perchase_request.connect(_on_perchase_request)
 	Events.send_player_resources.connect(_on_player_resources)
 
+func can_buy(item: Item, resources: Dictionary, owned_upgrades: Dictionary) -> bool:
+	if not can_afford(item, resources):
+		return false
+	
+	if item is Upgrade:
+		if owned_upgrades.get(item.id, false):
+			return false
+	return true
+
 func can_afford(item: Item, resources: Dictionary) -> bool:
 	for type in item.costs.keys():
 		var cost := int(item.costs[type])
@@ -32,7 +41,7 @@ func _on_player_resources(resources: Dictionary) -> void:
 	pending_item = null
 	pending_amount = 0
 	
-	if can_afford(item, resources):
+	if can_buy(item, resources, {}):
 		for type in item.costs.keys():
 			var cost := int(item.costs[type])
 			Events.subtract_resource.emit(type, cost)

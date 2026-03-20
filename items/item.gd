@@ -11,8 +11,3 @@ class_name Item
 
 @export_category("Economy")
 @export var costs: Dictionary[ResourceHandler.resource_type, int] = {}
-@export var production: Dictionary[ResourceHandler.resource_type, int] = {}
-
-@export_category("Upgrade Flags")
-@export var upgrade := false
-@export var effect_value := 0

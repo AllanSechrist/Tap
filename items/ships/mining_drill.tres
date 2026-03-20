@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dkodq0cl7fwup"]
+[gd_resource type="Resource" script_class="Ship" format=3 uid="uid://dkodq0cl7fwup"]
 
-[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_gu338"]
 [ext_resource type="Texture2D" uid="uid://bpsobtvdi30mf" path="res://assets/art/ships/playerShip3_red.png" id="1_ka4sa"]
+[ext_resource type="Script" uid="uid://ckqisofwv3p3x" path="res://items/ships/ship.gd" id="2_0x7li"]
 
 [resource]
-script = ExtResource("1_gu338")
+script = ExtResource("2_0x7li")
+production = Dictionary[int, int]({
+0: 10
+})
 id = &"mining_drill"
 display_name = "Mining Drill"
 description = "A humble drill"
 icon = ExtResource("1_ka4sa")
 costs = Dictionary[int, int]({
 0: 100
-})
-production = Dictionary[int, int]({
-0: 10
 })
 metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

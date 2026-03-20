@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="ShopCatalog" format=3 uid="uid://eowgs1mnq58m"]
 
-[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_wsnj5"]
+[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_mc5gb"]
 [ext_resource type="Resource" uid="uid://cexy6uxhl7xwe" path="res://items/ships/small_ship.tres" id="2_8qhvq"]
 [ext_resource type="Script" uid="uid://c6cixgpy4ljr5" path="res://Shop/shop_catalog.gd" id="2_147yu"]
 [ext_resource type="Resource" uid="uid://dkodq0cl7fwup" path="res://items/ships/mining_drill.tres" id="3_mc5gb"]
 [ext_resource type="Resource" uid="uid://c0kfo8r7tif3w" path="res://items/ships/cargo_ship.tres" id="4_a3h26"]
+[ext_resource type="Resource" uid="uid://w01716uqoh0c" path="res://items/upgrades/laser_drill.tres" id="5_a3h26"]
 
 [resource]
 script = ExtResource("2_147yu")
-items = Array[ExtResource("1_wsnj5")]([ExtResource("2_8qhvq"), ExtResource("3_mc5gb"), ExtResource("4_a3h26")])
+items = Array[ExtResource("1_mc5gb")]([ExtResource("2_8qhvq"), ExtResource("3_mc5gb"), ExtResource("4_a3h26"), ExtResource("5_a3h26")])
 metadata/_custom_type_script = "uid://c6cixgpy4ljr5"

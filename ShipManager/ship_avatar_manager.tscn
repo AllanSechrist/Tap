@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dw00pr3mol1y1"]
+
+[ext_resource type="Script" uid="uid://dguvcvm4egykt" path="res://ShipManager/ship_avatar_manager.gd" id="1_ukwff"]
+
+[node name="ShipAvatarManager" type="Node" unique_id=1873764770]
+script = ExtResource("1_ukwff")

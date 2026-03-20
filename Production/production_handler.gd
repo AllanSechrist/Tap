@@ -2,6 +2,7 @@ extends Node
 class_name ProductionHandler
 
 @export var inventory: Dictionary[StringName, int]
+@export var owned_upgrades: Dictionary[StringName, bool]
 @export var tick_rate: float = 1.0
 @export var catalog: ShopCatalog
 
@@ -19,6 +20,9 @@ func _ready() -> void:
 	
 	for item in catalog.items:
 		item_lookup[item.id] = item
+		
+#func apply_upgrades(item: Item, owned_upgrades: Dictionary, alll):
+	#pass
 	
 func get_total_production() -> int:
 	var total: int = 0
@@ -52,16 +56,27 @@ func _on_perchase_success(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:
 		return
 		
-	inventory[item.id] = inventory.get(item.id, 0) + amount
-	Events.update_owned_label.emit(item, inventory[item.id])
-	Events.update_ore_per_second_label.emit(get_total_production())
+	if item is Ship:
+		inventory[item.id] = inventory.get(item.id, 0) + amount
+		Events.update_owned_label.emit(item, inventory[item.id])
+		Events.update_ore_per_second_label.emit(get_total_production())
+		#DEBUG
+		if item.id == "small_ship":
+			Events.update_ship_avatars.emit(item, inventory["small_ship"])
+		#END DEBUG
+	elif item is Upgrade:
+		pass
 	
 func _on_remove_item(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:
 		return
 	
 	inventory[item.id] = max(0, inventory.get(item.id, 0) - amount)
-	
-func _unhandled_key_input(event: InputEvent) -> void:	
+
+#DEBUG
+func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug"):
-		Events.perchase_request.emit(item_lookup["small_ship"], 1)
+		print("plus one small drill")
+		inventory["small_ship"] = inventory.get("small_ship", 0) + 1
+		Events.update_ore_per_second_label.emit(get_total_production())
+#END DEBUG

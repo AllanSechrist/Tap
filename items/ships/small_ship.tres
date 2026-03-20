@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cexy6uxhl7xwe"]
+[gd_resource type="Resource" script_class="Ship" format=3 uid="uid://cexy6uxhl7xwe"]
 
-[ext_resource type="Script" uid="uid://b4bvyu5ubixtr" path="res://items/item.gd" id="1_v0doh"]
 [ext_resource type="Texture2D" uid="uid://byvoirbwexebk" path="res://assets/art/ships/enemyRed1.png" id="1_yfa1p"]
+[ext_resource type="Script" uid="uid://ckqisofwv3p3x" path="res://items/ships/ship.gd" id="2_f4fsc"]
 
 [resource]
-script = ExtResource("1_v0doh")
+script = ExtResource("2_f4fsc")
+production = Dictionary[int, int]({
+0: 1
+})
 id = &"small_ship"
 display_name = "Small Ship"
 description = "A Small Ship"
 icon = ExtResource("1_yfa1p")
 costs = Dictionary[int, int]({
 0: 25
-})
-production = Dictionary[int, int]({
-0: 1
 })
 metadata/_custom_type_script = "uid://b4bvyu5ubixtr"

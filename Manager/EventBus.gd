@@ -12,6 +12,7 @@ signal remove_item(item: Item, amount: int)
 signal update_resource_label(type: ResourceHandler.resource_type, new_value: int)
 signal update_owned_label(item: Item, new_value: int) #pass in item type and amount
 signal update_ore_per_second_label(new_value: int)
+signal update_ship_avatars(ship: Ship, amount: int)
 
 # ------- SHOP -------
 signal toggle_shop_menu()

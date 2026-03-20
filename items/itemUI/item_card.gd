@@ -7,7 +7,7 @@ class_name ItemCard
 @onready var description_label: Label = %DescriptionLabel
 @onready var buy_label: Label = %BuyLabel
 @onready var owned_label: Label = %OwnedLabel
-@onready var button_labels: VBoxContainer = %ButtonLabels
+@onready var button_labels_container: VBoxContainer = %ButtonLabelsContainer
 
 var item: Item
 var amount := 1
@@ -28,9 +28,6 @@ func setup(new_item: Item):
 		
 	update_text(text, "Buy")
 	update_text("Owned: 0", "Owned")
-	
-	if item.upgrade:
-		owned_label.visible = false
 
 func update_text(text: String, label_type: String) -> void:
 	if label_type == "Buy":
@@ -42,7 +39,7 @@ func update_text(text: String, label_type: String) -> void:
 		return
 		
 	await get_tree().process_frame
-	button_labels.custom_minimum_size = button_labels.get_combined_minimum_size()
+	button_labels_container.custom_minimum_size = button_labels_container.get_combined_minimum_size()
 	
 func _on_update_owned_label(update_item: Item, value: int) -> void:
 	if update_item != item:
