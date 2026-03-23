@@ -41,19 +41,5 @@ func animate() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(planet, "scale", animation_target, duration * 0.5)
 	tween.tween_property(planet, "scale", animation_original, duration * 0.5)
-#func shrink_planet() -> void:
-	#if tween:
-		#tween.kill()
-	#tween = create_tween()
-	#tween.set_trans(Tween.TRANS_SINE)
-	#tween.set_ease(Tween.EASE_OUT)
-	#tween.tween_property(planet, "scale", animation_target, duration)
-		#
-#func grow_planet() -> void:
-	#if tween:
-		#tween.kill()
-	#tween = create_tween()
-	#tween.set_trans(Tween.TRANS_SINE)
-	#tween.set_ease(Tween.EASE_OUT)
-	#tween.tween_property(planet, "scale", animation_original, duration)
+
 	

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bsduwcnx8btvt"]
+
+[ext_resource type="Script" uid="uid://dm6ocky5q2cej" path="res://assets/effects/laser_effect.gd" id="1_ld0jj"]
+
+[sub_resource type="Gradient" id="Gradient_ld0jj"]
+colors = PackedColorArray(0.34117648, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="LaserEffect" type="Node2D" unique_id=794290899]
+script = ExtResource("1_ld0jj")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1696490495]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 140.0
+damping_min = 20.0
+damping_max = 40.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color = Color(0.34117648, 1, 1, 1)
+color_ramp = SubResource("Gradient_ld0jj")

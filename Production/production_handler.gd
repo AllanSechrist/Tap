@@ -65,7 +65,8 @@ func _on_perchase_success(item: Item, amount: int) -> void:
 			Events.update_ship_avatars.emit(item, inventory["small_ship"])
 		#END DEBUG
 	elif item is Upgrade:
-		pass
+		owned_upgrades[item.id] = inventory.get(item.id, 0) + amount
+		print(owned_upgrades)
 	
 func _on_remove_item(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:

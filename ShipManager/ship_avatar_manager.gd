@@ -22,6 +22,7 @@ func add_ship_icon(texture: Texture2D) -> void:
 	add_child(ship)
 	ship.set_icon(texture)
 	ship.global_position = planet.global_position
+	ship.fire_target_position = planet.global_position
 	ships.append(ship)
 	update_ship_targets()
 	
@@ -35,6 +36,7 @@ func update_ship_targets() -> void:
 		var angle := orbit_rotation + (float(i) / count) * TAU
 		var offset := Vector2.RIGHT.rotated(angle) * orbit_radius
 		ship.target_position = planet.global_position + offset
+		ship.rotation = angle + PI - PI / 2.0
 	
 func _on_inventory_change(ship: Ship, new_amount: int) -> void:
 	var current_amount := ships.size()

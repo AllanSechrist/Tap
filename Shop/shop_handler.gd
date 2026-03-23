@@ -4,6 +4,8 @@ class_name ShopHandler
 var pending_item: Item = null
 var pending_amount: int = 0
 @export var catalog: ShopCatalog
+@export var resource_handler: ResourceHandler
+@export var production_handler: ProductionHandler
 
 func _ready() -> void:
 	Events.perchase_request.connect(_on_perchase_request)
