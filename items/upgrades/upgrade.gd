@@ -7,6 +7,6 @@ enum EffectType {
 }
 
 @export_category("Upgrade Stats")
-@export var target_item_id: StringName
+@export var target_item: Ship
 @export var effect_type: EffectType = EffectType.MULTIPLY
 @export var effect_value: int = 2

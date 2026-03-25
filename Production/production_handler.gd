@@ -40,7 +40,21 @@ func get_total_production() -> int:
 			var produced_per_tick: int = int(item.production[resource_type])
 			var total_amount: int = owned_count * produced_per_tick
 			total += total_amount
+		
+		total *= apply_upgrade_bonus(item)
 	return total
+	
+func apply_upgrade_bonus(item: Item) -> int:
+	var total: int = 1
+	for upgrade_id in owned_upgrades.keys():
+		var upgrade = item_lookup.get(upgrade_id)
+		if upgrade.target_item == item:
+			total *= upgrade.effect_value
+			
+	return total
+		
+func get_owned_upgrades() -> Dictionary:
+	return owned_upgrades.duplicate()
 
 func _on_tick() -> void:
 	var total = get_total_production()
@@ -65,7 +79,8 @@ func _on_perchase_success(item: Item, amount: int) -> void:
 			Events.update_ship_avatars.emit(item, inventory["small_ship"])
 		#END DEBUG
 	elif item is Upgrade:
-		owned_upgrades[item.id] = inventory.get(item.id, 0) + amount
+		owned_upgrades[item.id] = owned_upgrades.get(item.id, 0) + 1
+		Events.update_ore_per_second_label.emit(get_total_production())
 		print(owned_upgrades)
 	
 func _on_remove_item(item: Item, amount: int) -> void:

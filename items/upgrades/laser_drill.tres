@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://d4eg3rjlc85sd" path="res://assets/art/lasers/laserBlue01.png" id="1_p4h3c"]
 [ext_resource type="Script" uid="uid://d1xmu4dgi64wo" path="res://items/upgrades/upgrade.gd" id="2_p4h3c"]
+[ext_resource type="Resource" uid="uid://cexy6uxhl7xwe" path="res://items/ships/small_ship.tres" id="3_oc2yx"]
 
 [resource]
 script = ExtResource("2_p4h3c")
+target_item = ExtResource("3_oc2yx")
 id = &"laser_drill"
 display_name = "Laser Drill"
 description = "Do not aim at face."

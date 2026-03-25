@@ -1,22 +1,19 @@
 extends Node
 class_name ShopHandler
 
-var pending_item: Item = null
-var pending_amount: int = 0
 @export var catalog: ShopCatalog
 @export var resource_handler: ResourceHandler
 @export var production_handler: ProductionHandler
 
 func _ready() -> void:
 	Events.perchase_request.connect(_on_perchase_request)
-	Events.send_player_resources.connect(_on_player_resources)
 
-func can_buy(item: Item, resources: Dictionary, owned_upgrades: Dictionary) -> bool:
+func can_buy(item: Item, resources: Dictionary) -> bool:
 	if not can_afford(item, resources):
 		return false
 	
 	if item is Upgrade:
-		if owned_upgrades.get(item.id, false):
+		if production_handler.owned_upgrades.get(item.id, false):
 			return false
 	return true
 
@@ -28,22 +25,19 @@ func can_afford(item: Item, resources: Dictionary) -> bool:
 			return false
 	return true
 	
-func _on_perchase_request(item: Item, amount: int) -> void:
-	pending_item = item
-	pending_amount = amount
-	Events.request_player_resources.emit()
+#func _on_perchase_request(item: Item, amount: int) -> void:
+	#pending_item = item
+	#pending_amount = amount
+	#Events.request_player_resources.emit()
 	
-func _on_player_resources(resources: Dictionary) -> void:
-	if pending_item == null or pending_amount == 0:
+func _on_perchase_request(item: Item, amount: int) -> void:
+	if item == null or amount == 0:
 		return
 	
-	var item := pending_item
-	var amount := pending_amount
+	var resources := resource_handler.get_resources()
+	var owned_upgrades := production_handler.get_owned_upgrades()
 	
-	pending_item = null
-	pending_amount = 0
-	
-	if can_buy(item, resources, {}):
+	if can_buy(item, resources):
 		for type in item.costs.keys():
 			var cost := int(item.costs[type])
 			Events.subtract_resource.emit(type, cost)
