@@ -1,12 +1,14 @@
 extends Node2D
 class_name ShipAvatar
 
-const LASER_EFFECT = preload("uid://bsduwcnx8btvt")
+#const LASER_EFFECT = preload("uid://bsduwcnx8btvt")
+const LASER_EFFECT = preload("uid://diteqlph40eak")
+@export var fire_rate_min: float = 5.0
+@export var fire_rate_max: float = 10.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var laser_timer: Timer = $LaserTimer
-@export var fire_rate_min: float = 5.0
-@export var fire_rate_max: float = 10.0
+@onready var laser_ray_cast: RayCast2D = $LaserRayCast
 
 var target_position: Vector2
 var fire_target_position: Vector2
@@ -29,11 +31,9 @@ func randomize_fire_timer() -> void:
 func fire_laser() -> void:
 	print("Ship fired a laser!")
 	var angle_to_target := global_position.angle_to_point(fire_target_position)
-	var laser = LASER_EFFECT.instantiate()
-	get_tree().current_scene.add_child(laser)
-	laser.global_position = global_position
-	laser.global_rotation = angle_to_target
-	laser.fire()
+	laser_ray_cast.global_position = global_position
+	laser_ray_cast.global_rotation = angle_to_target
+	laser_ray_cast.set_is_casting()
 
 func _on_laser_timer_timeout() -> void:
 	fire_laser()

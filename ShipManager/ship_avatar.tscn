@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmxxsdylfgdr8"]
 
 [ext_resource type="Script" uid="uid://bb5f10465vs76" path="res://ShipManager/ship_avatar.gd" id="1_f4x7j"]
+[ext_resource type="PackedScene" uid="uid://diteqlph40eak" path="res://assets/effects/laser_ray_cast.tscn" id="2_455m1"]
 
 [node name="ShipAvatar" type="Node2D" unique_id=743189740]
 script = ExtResource("1_f4x7j")
@@ -9,3 +10,5 @@ script = ExtResource("1_f4x7j")
 scale = Vector2(0.5, 0.5)
 
 [node name="LaserTimer" type="Timer" parent="." unique_id=659317201]
+
+[node name="LaserRayCast" parent="." unique_id=2099570748 instance=ExtResource("2_455m1")]
