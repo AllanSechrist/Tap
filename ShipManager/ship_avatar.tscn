@@ -9,6 +9,11 @@ script = ExtResource("1_f4x7j")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=389035746]
 scale = Vector2(0.5, 0.5)
 
-[node name="LaserTimer" type="Timer" parent="." unique_id=659317201]
+[node name="FireTimer" type="Timer" parent="." unique_id=659317201]
+
+[node name="CastTimer" type="Timer" parent="." unique_id=1300879402]
+one_shot = true
 
 [node name="LaserRayCast" parent="." unique_id=2099570748 instance=ExtResource("2_455m1")]
+
+[connection signal="timeout" from="CastTimer" to="." method="_on_cast_timer_timeout"]
