@@ -6,6 +6,10 @@ extends RayCast2D
 @export var growth_time := 0.1
 @export var is_casting := false: set = set_is_casting
 @export var color := Color.WHITE: set = set_color
+
+@onready var casting_particles_2d: GPUParticles2D = %CastingParticles2D
+@onready var beam_particles_2d: GPUParticles2D = %BeamParticles2D
+@onready var collision_particles_2d: GPUParticles2D = %CollisionParticles2D
 @onready var line_2d: Line2D = $Line2D
 @onready var line_width := line_2d.width
 
@@ -14,39 +18,54 @@ var tween: Tween = null
 func _ready() -> void:
 	set_color(color)
 	set_is_casting(is_casting)
+	line_2d.points[0] = Vector2.RIGHT * start_distance
+	line_2d.points[1] = Vector2.ZERO
+	line_2d.visible = false
+	casting_particles_2d.position = line_2d.points[0]
 
 func _physics_process(delta: float) -> void:
-	target_position.x = move_toward(
-		target_position.x,
-		max_length,
-		cast_speed * delta
-	)
-	
+	target_position = target_position.move_toward(Vector2.RIGHT * max_length, cast_speed * delta)
+
 	var laser_end_position := target_position
 	force_raycast_update()
+
 	if is_colliding():
 		laser_end_position = to_local(get_collision_point())
+		collision_particles_2d.global_rotation = get_collision_normal().angle()
+		collision_particles_2d.position = laser_end_position
+
 	line_2d.points[1] = laser_end_position
+
+	var laser_start_position := line_2d.points[0]
+	beam_particles_2d.position = laser_start_position + (laser_end_position - laser_start_position) * 0.5
+	beam_particles_2d.process_material.emission_box_extents.x = laser_end_position.distance_to(laser_start_position) * 0.5
+
+	collision_particles_2d.emitting = is_colliding()
 
 func set_is_casting(new_value: bool) -> void:
 	if is_casting == new_value:
 		return
 	is_casting = new_value
-	
 	set_physics_process(is_casting)
-	
-	if not line_2d:
+
+	if beam_particles_2d == null:
 		return
-	
+
+	beam_particles_2d.emitting = is_casting
+	casting_particles_2d.emitting = is_casting
+
 	if is_casting:
 		var laser_start := Vector2.RIGHT * start_distance
 		line_2d.points[0] = laser_start
 		line_2d.points[1] = laser_start
+		casting_particles_2d.position = laser_start
+		
 		appear()
 	else:
 		target_position = Vector2.ZERO
+		collision_particles_2d.emitting = false
 		disappear()
-		
+
 func appear() -> void:
 	line_2d.visible = true
 	if tween and tween.is_running():
@@ -65,4 +84,8 @@ func set_color(new_color: Color) -> void:
 	color = new_color
 	if line_2d == null:
 		return
+		
 	line_2d.modulate = new_color
+	casting_particles_2d.modulate = new_color
+	collision_particles_2d.modulate = new_color
+	beam_particles_2d.modulate = new_color

@@ -5,6 +5,7 @@
 
 [node name="ShipAvatar" type="Node2D" unique_id=743189740]
 script = ExtResource("1_f4x7j")
+cast_length = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=389035746]
 scale = Vector2(0.5, 0.5)
@@ -15,5 +16,6 @@ scale = Vector2(0.5, 0.5)
 one_shot = true
 
 [node name="LaserRayCast" parent="." unique_id=2099570748 instance=ExtResource("2_455m1")]
+color = Color(0, 0.961202, 0.96719956, 1)
 
 [connection signal="timeout" from="CastTimer" to="." method="_on_cast_timer_timeout"]

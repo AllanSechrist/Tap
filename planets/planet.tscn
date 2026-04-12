@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgmeama31tfc4" path="res://assets/art/planets/planet00.png" id="1_xgwrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
-radius = 276.06522
+radius = 244.03279
 
 [node name="Planet" type="Node2D" unique_id=918815002]
 script = ExtResource("1_0coog")
